@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Arreglos</title>
+</head>
+<body>
+    <?php
+    $Array01 = array(
+        0 => 'Sweet home alabama',
+        1 => 'The home of the Tizayorks',
+        2 => 'Potaxio'
+    );
+    $MiDesayuno = [
+        'Potaxio' => 'Banana',
+        'SomeBeans' => 'Frijoles con arroz',
+        'pipipupucheck' => 'Limonada'
+    ];
+    print("<h2> Uso de FOR para imprimir arreglos </h2>");
+    print("<ul>");
+    for ($i = 0; $i < count($Array01); $i++){
+        print("<li>");
+        print("$i -> $Array01[$i]\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    print("<h2> Uso de FOREACH para imprimir arreglos </h2>");
+    print("<ul>");
+    foreach($MiDesayuno as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    //Añadir Datos
+    $MiDesayuno['TacoBell'] = 'Tortillas';
+    print("<h2>Añadir Datos a un array</h2>");
+    print("\n<br>\n".'Uso: $MiDesayuno["TacoBell"] = "Tortillas";'."\n<br>\n");
+    print("<ul>");
+    foreach($MiDesayuno as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    //Editar datos
+    $MiDesayuno['TacoBell'] = 'Taquitos';
+    print("<h2>Editar Datos a un array</h2>");
+    print("\n<br>\n".'Uso: $MiDesayuno["TacoBell"] = "Taquitos";'."\n<br>\n");
+    print("<ul>");
+    foreach($MiDesayuno as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    //Actividad
+    //Realiza un arreglo con tus familiares (5), incluye padres e hijos
+    //Las llaves seran nombres y valores el parentezco
+    //Imprime el arreglo                                     **DONE**
+    //Ordenalo de alguna forma                               **DONE**
+    //Añade a tus hijos, sobrinos, primos                    **DONE**
+    //Cambia de parentezco a algun familiar                  **DONE**
+    //Elimina algunos familiares                             **DONE**
+    //Realiza busquedas por nombre(key) y parentezco(Value)  **DONE**   
+    $MiFamilia = [
+        'Samantha Sanchez' => 'Hermana',
+        'Jorge Sanchez' => 'Padre',
+        'Lilia Urbina' => 'Madre',
+        'Casandra Sanchez' => 'Hermana'
+    ];
+    print("<h3>Mi familia</h3>");
+    print("<h5>Print</h5>");
+    print("<ul>");
+    foreach($MiFamilia as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    ksort($MiFamilia);
+    print("<h3>Mi familia</h3>");
+    print("<h5>Ordenados por nombre</h5>");
+    print("<ul>");
+    foreach($MiFamilia as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    $MiFamilia['Guadalupe Urbina'] = 'Tia';
+    $MiFamilia['Ruben Sanchez'] = 'Tio';
+    $MiFamilia['Natalio Urbina'] = 'Abuelo';
+    $MiFamilia['Elizabeth Gonzalez'] = 'Abuela';
+    $MiFamilia['Maira Urbina'] = 'Prima';
+    $MiFamilia['Ariel Urbina'] = 'Primo';
+    print("<h3>Mi familia</h3>");
+    print("<h5>Se han añadido 6 personas</h5>");
+    print("<ul>");
+    foreach($MiFamilia as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    $MiFamilia['Ariel Urbina'] = 'Sobrino';
+    print("<h3>Mi familia</h3>");
+    print("<h5>Se ha cambiado de parentesco a ARIEL</h5>");
+    print("<ul>");
+    foreach($MiFamilia as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    unset($MiFamilia['Ariel Urbina']);
+    unset($MiFamilia['Maira Urbina']);
+    print("<h3>Mi familia</h3>");
+    print("<h5>Se ha eliminado a ARIEL y MAIRA</h5>");
+    print("<ul>");
+    foreach($MiFamilia as $Indice  => $Pos){
+        print("<li>");
+        print("$Indice -> $Pos\n<br>\n");
+        print("</li>");
+    }
+    print("</ul>");
+    print("<h3>Mi familia</h3>");
+    print("<h5>Busqueda por llave: Samantha</h5>");
+    if (array_key_exists('Samantha Sanchez',$MiFamilia)){
+        print("Efectivamente, el arreglo contiene a Samantha");
+    }
+    else{
+        print("El arreglo no contiene a Samantha");
+    }
+    print("<h3>Mi familia</h3>");
+    print("<h5>Busqueda por valor: Padre</h5>");
+    if (in_array('Padre',$MiFamilia)){
+        print("Efectivamente, el arreglo contiene a mi padre");
+    }
+    else{
+        print("El arreglo no contiene a mi padre");
+    }
+    ?>
+</body>
+</html>
